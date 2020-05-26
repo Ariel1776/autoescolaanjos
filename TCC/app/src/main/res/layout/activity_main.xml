@@ -12,27 +12,55 @@
         android:orientation="vertical"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        android:background="@color/colorAccent"
+
+        >
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="189dp"
-            app:srcCompat="@android:drawable/btn_dialog" />
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/logoautoescola" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="X'"
-            android:inputType="textEmailAddress" />
+            android:layout_height="67dp"
+            android:inputType="textEmailAddress"
+            android:hint="EMAIL"
+            android:textStyle="bold"
+            />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/editSenha"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="67dp"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:hint="SENHA"
+            android:inputType="textPassword"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/butaoLog"
+            android:layout_width="match_parent"
+            android:layout_height="73dp"
+            android:text="Login"
+            android:textStyle="bold"
+            android:background="@drawable/btnstyle"
+            android:layout_marginTop="9dp"
+            />
+
+        <Button
+            android:id="@+id/butaoCad"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:text="CADASTRAR"
+            android:textStyle="bold"
+            android:background="@drawable/btnstyle"
+            android:layout_marginTop="9dp"
+            />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
