@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundo"
+    tools:context=".MainCadastro">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="6dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@color/fundo"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:baselineAlignBottom="false"
+                android:clickable="false"
+                app:srcCompat="@drawable/background" />
+
+            <EditText
+                android:id="@+id/txtnome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="Nome Completo"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <EditText
+                android:id="@+id/txtnascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="Data de Nascimento"
+                android:inputType="date"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <RadioGroup
+                android:id="@+id/txtgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/txtfem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginRight="8dp"
+                    android:buttonTint="#66000000"
+                    android:checked="true"
+                    android:text="Feminino"
+                    android:textColor="@color/branco" />
+
+                <RadioButton
+                    android:id="@+id/txtmasc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:buttonTint="#66000000"
+                    android:checked="false"
+                    android:text="Masculino"
+                    android:textColor="@color/branco" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/txtcpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="CPF"
+                android:inputType="textPersonName"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <EditText
+                android:id="@+id/txttel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="Telefone"
+                android:inputType="phone"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/txtcep"
+                    android:layout_width="275dp"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:background="@drawable/inputstyle"
+                    android:ems="10"
+                    android:hint="CEP"
+                    android:inputType="textPostalAddress"
+                    android:selectAllOnFocus="false"
+                    android:textAlignment="center"
+                    android:textColor="@color/branco"
+                    android:textColorHint="@color/branco" />
+
+                <EditText
+                    android:id="@+id/txtnum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:background="@drawable/inputstyle"
+                    android:ems="10"
+                    android:hint="Nº"
+                    android:inputType="number"
+                    android:textAlignment="center"
+                    android:textColor="@color/branco"
+                    android:textColorHint="@color/branco" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <EditText
+                android:id="@+id/txtsenha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco" />
+
+            <Button
+                android:id="@+id/btncad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/btngreen"
+                android:text="CADASTRE-SE"
+                android:textColor="@color/branco" />
+
+            <Button
+                android:id="@+id/btnclear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/btnred"
+                android:text="LIMPAR"
+                android:textColor="@color/branco" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
