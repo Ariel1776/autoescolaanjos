@@ -1,5 +1,6 @@
 package com.example.tcc;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,17 @@ public class MainActivity extends AppCompatActivity {
                 String email = entradaEmail.getText().toString();
                 String senha = entradaSenha.getText().toString();
 
-                Toast.makeText(getApplicationContext(),"Ola" + email +  "Você digitou a senha" + senha,Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, ActivityPrincipal.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        buttomCad.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MainCadastro.class);
+                startActivity(intent);
+                finish();
             }
         });
         

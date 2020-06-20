@@ -1,5 +1,6 @@
 package com.example.tcc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -15,4 +16,6 @@ public class FragmentFour extends Fragment {
         View view = inflater.inflate(R.layout.fragment_four, container, false);
         return view;
     }
+
+
 }

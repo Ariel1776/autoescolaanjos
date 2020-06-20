@@ -197,6 +197,18 @@
                 android:text="LIMPAR"
                 android:textColor="@color/branco" />
 
+            <Button
+                android:id="@+id/btnvoltar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/btnred"
+                android:text="VOLTAR"
+                android:textColor="@color/branco"
+                 />
+
         </LinearLayout>
     </ScrollView>
 

@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#005588</color>
     <color name="colorBlack">#000102</color>
-
-=======
     <color name="colorPrimary">#00558e</color>
     <color name="colorPrimaryDark">#00558e</color>
     <color name="colorAccent">#000</color>
     <color name="fundo">#00558e</color>
     <color name="textcad">#000</color>
     <color name="branco">#fff</color>
->>>>>>> rique
 </resources>

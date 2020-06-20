@@ -1,6 +1,7 @@
 package com.example.tcc;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,7 @@ public class MainCadastro extends AppCompatActivity {
     private EditText senha;
     private Button btncad;
     private Button btnclear;
+    private Button btnvoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainCadastro extends AppCompatActivity {
         senha = (EditText) findViewById(R.id.txtsenha);
         btncad = (Button) findViewById(R.id.btncad);
         btnclear = (Button) findViewById(R.id.btnclear);
+        btnvoltar = (Button) findViewById(R.id.btnvoltar);
 
         btncad.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,5 +59,16 @@ public class MainCadastro extends AppCompatActivity {
 
                 }
             });
+
+        btnvoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainCadastro.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                     }
+                });
+            }
         }
-    }
+
+

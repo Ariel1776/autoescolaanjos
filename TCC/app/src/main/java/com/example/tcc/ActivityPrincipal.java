@@ -94,6 +94,10 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.replace(R.id.container_fragment, new FragmentFour());
             fragmentTransaction.commit();
 
+        } else if (id == R.id.nav_sair) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
