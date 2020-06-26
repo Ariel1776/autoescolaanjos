@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:background="@color/branco"
+=======
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/fundo"
+>>>>>>> 7eea40384ba8e04890160e4fd85f7afa05e6fae6
     android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <TextView
             android:id="@+id/textView4"
@@ -15,5 +25,113 @@
             android:layout_height="?attr/actionBarSize"
             android:text="" />
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="match_parent"
+            android:layout_height="171dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            app:srcCompat="@drawable/background" />
+
+        <EditText
+            android:id="@+id/txtnome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/inputstyle"
+            android:ems="10"
+            android:hint="Nome Completo"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txtnascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/inputstyle"
+            android:ems="10"
+            android:hint="Data de Nascimento"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
+            android:textStyle="bold" />
+
+
+
+        <EditText
+            android:id="@+id/txtcpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/inputstyle"
+            android:ems="10"
+            android:hint="CPF"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/txttel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/inputstyle"
+            android:ems="10"
+            android:hint="Telefone"
+            android:inputType="phone"
+            android:textAlignment="center"
+            android:textColor="@color/branco"
+            android:textColorHint="@color/branco"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/txtcep"
+                android:layout_width="275dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="CEP"
+                android:inputType="textPostalAddress"
+                android:selectAllOnFocus="false"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/txtnum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/inputstyle"
+                android:ems="10"
+                android:hint="Nº"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColor="@color/branco"
+                android:textColorHint="@color/branco"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
     </LinearLayout>
+<<<<<<< HEAD
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+
+
+</android.support.constraint.ConstraintLayout>
+>>>>>>> 7eea40384ba8e04890160e4fd85f7afa05e6fae6

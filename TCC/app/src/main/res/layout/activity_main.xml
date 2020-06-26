@@ -4,16 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="@color/fundo"
     tools:context=".MainActivity">
+=======
+    tools:context=".MainActivity"
+    android:background="@color/fundo">
+>>>>>>> 7eea40384ba8e04890160e4fd85f7afa05e6fae6
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+<<<<<<< HEAD
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
         android:background="@color/fundo">
+=======
+        android:background="@color/fundo"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+
+        >
+>>>>>>> 7eea40384ba8e04890160e4fd85f7afa05e6fae6
 
         <ImageView
             android:id="@+id/imageView"
@@ -43,8 +56,10 @@
         <Button
             android:id="@+id/butaoLog"
             android:layout_width="match_parent"
-            android:layout_height="73dp"
+            android:layout_height="50dp"
             android:text="Login"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:textStyle="bold"
             android:background="@drawable/btnstyle"
             android:layout_marginTop="9dp"
@@ -53,8 +68,10 @@
         <Button
             android:id="@+id/butaoCad"
             android:layout_width="match_parent"
-            android:layout_height="67dp"
+            android:layout_height="50dp"
             android:text="CADASTRAR"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
             android:textStyle="bold"
             android:background="@drawable/btnstyle"
             android:layout_marginTop="9dp"
