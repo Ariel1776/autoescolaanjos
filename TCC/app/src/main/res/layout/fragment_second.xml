@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/fundo"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            android:layout_marginBottom="20dp"
+            app:srcCompat="@drawable/background" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SOBRE A AUTO ESCOLA ANJOS"
+            android:textAlignment="center"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            android:textAlignment="center"
+            android:text="CNPJ :"
+            />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="   10.512.650/0001-70"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            android:textAlignment="center"
+            android:text="TEFELONE :"
+            />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="   (11) 2059-2606"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            android:textAlignment="center"
+            android:text="EMAIL :"
+            />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="   autoescolaanjos1@gmail.com"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="95dp"
+            android:layout_marginRight="95dp"
+            android:textAlignment="center"
+            android:text="ENDEREÇO :"
+            />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="19dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:text="   Praça Catas Altas,133 03938140 São Paulo" />
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
