@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "465374917438",
-    "firebase_url": "https://auto-escola-anjos.firebaseio.com",
-    "project_id": "auto-escola-anjos",
-    "storage_bucket": "auto-escola-anjos.appspot.com"
+    "project_number": "409038560962",
+    "firebase_url": "https://escola-anjos.firebaseio.com",
+    "project_id": "escola-anjos",
+    "storage_bucket": "escola-anjos.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:465374917438:android:c8db51549ed33fd006b26f",
+        "mobilesdk_app_id": "1:409038560962:android:aee5d223c5ae6c2f12255b",
         "android_client_info": {
           "package_name": "com.example.tcc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "465374917438-92umgf9hid504fh274ihjjg9fk596mfa.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.tcc",
-            "certificate_hash": "40cb27de7fe1ce4edfa326f7b6bcdcba4b070cf6"
-          }
-        },
-        {
-          "client_id": "465374917438-nr8vmicis8e7m1rvdbrjvh6fbpqa79qq.apps.googleusercontent.com",
+          "client_id": "409038560962-ptlkmv513ol3kkkr3aclv2t2tnnu1lvm.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB273tYeQz3QKKjFTXKQX4Eawop8n7Csng"
+          "current_key": "AIzaSyB9YOLwI8clrIUwooW0WYpHYv9QJt476HQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "465374917438-nr8vmicis8e7m1rvdbrjvh6fbpqa79qq.apps.googleusercontent.com",
+              "client_id": "409038560962-ptlkmv513ol3kkkr3aclv2t2tnnu1lvm.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

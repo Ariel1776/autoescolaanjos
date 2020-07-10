@@ -7,6 +7,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +17,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import com.example.tcc.MainActivity;
 
 
 public class ActivityPrincipal extends AppCompatActivity
@@ -22,12 +28,19 @@ public class ActivityPrincipal extends AppCompatActivity
     FragmentTransaction fragmentTransaction;
     FragmentManager fragmentManager;
 
+    private FirebaseAuth mAuth;
+    public String lbEmailDoUsuarioLogado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        MainActivity ma = new MainActivity();
+
+        mAuth = FirebaseAuth.getInstance();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -37,6 +50,7 @@ public class ActivityPrincipal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -93,6 +107,7 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_sair) {
+            logoff();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -101,6 +116,27 @@ public class ActivityPrincipal extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    public void logoff() {
+        mAuth.signOut();
+        updateUI(null);
+    }
+
+    public void updateUI(FirebaseUser user) {
+        if (user != null) {
+            lbEmailDoUsuarioLogado = user.getEmail();
+        } else {
+            lbEmailDoUsuarioLogado = "Nenhum Usuário Logado";
+        }
+
     }
 
 }
