@@ -1,22 +1,24 @@
 package com.example.tcc;
 
 import android.content.Intent;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import android.widget.Toast;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainCadastro extends AppCompatActivity {
 
@@ -35,13 +37,15 @@ public class MainCadastro extends AppCompatActivity {
     private Button btncad;
     private Button btnclear;
     private Button btnvoltar;
-
+    DatabaseReference reff;
+    Cad cad;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_cadastro);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         nome = (EditText) findViewById(R.id.txtnome);
         nasc = (EditText) findViewById(R.id.txtnascimento);
@@ -54,8 +58,35 @@ public class MainCadastro extends AppCompatActivity {
         btncad = (Button) findViewById(R.id.btncad);
         btnclear = (Button) findViewById(R.id.btnclear);
         btnvoltar = (Button) findViewById(R.id.btnvoltar);
+        cad = new Cad();
+        reff = FirebaseDatabase.getInstance().getReference().child("Cad");
 
+        btncad.setOnClickListener((new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int cpfi=Integer.parseInt(txtcpf.getText().toString.trim());
+                int cepp=Integer.parseInt(txtcep.getText().toString.trim());
+                Long tell=Long.parseLong(txttel.getText().toString.trim());
+                cad.setNome(txtnome.getText().toString.trim());
+                cad.setSexo(txtgroup.getText().toString.trim());
+                cad.setEmail(txtemail.getText().toString.trim());
+                cad.setSenha(txtsenha.getText().toString.trim());
+                cad.setNasc(nasc);
+                cad.setCep(cepp);
+                cad.setCpf(cpfi);
+                cad.setTel(tell);
+
+
+                reff.push().setValue(cad);
+                Toast.makeText(datainsert.this, "Dados salvos com sucesso!",Toast.LENGTH_LONG);
+            }
+        }));
+
+
+        /*
         btncad.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainCadastro.this, "Cadastrando...", Toast.LENGTH_SHORT).show();
@@ -63,7 +94,7 @@ public class MainCadastro extends AppCompatActivity {
 
             }
         });
-
+        */
         btnclear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -19,7 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import com.example.tcc.MainActivity;
 
 
 public class ActivityPrincipal extends AppCompatActivity
