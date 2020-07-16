@@ -5,10 +5,13 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,92 +22,77 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText entradaEmail, entradaSenha;
-    private Button buttomLogin, buttomCad;
-
-
-    public static final String TAG = "EmailPassword";
-    private FirebaseAuth mAuth;
-    public String lbEmailDoUsuarioLogado;
-
-
-
+    EditText txtemail,txtpass;
+    Button btnsignin;
+    TextView btnnew;
+    ProgressBar progressBar;
+    FirebaseAuth fireAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
-        inicializarComponentes();
+        txtemail = findViewById(R.id.editEmail);
+        txtpass = findViewById(R.id.editSenha);
+        btnsignin = findViewById(R.id.butaoLog);
+        btnnew = findViewById(R.id.btnnovoaqui);
+        progressBar = findViewById(R.id.progressBar);
 
-        entradaEmail = (EditText) findViewById(R.id.editEmail);
-        entradaSenha = (EditText) findViewById(R.id.editSenha);
+        fireAuth = FirebaseAuth.getInstance();
 
-        buttomLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
-
-        buttomCad.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MainCadastro.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-        
-
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
-
-    public void updateUI(FirebaseUser user) {
-        if (user != null) {
-            lbEmailDoUsuarioLogado = user.getEmail();
-        } else {
-            lbEmailDoUsuarioLogado = "Nenhum Usuário Logado";
+        if (fireAuth.getCurrentUser() != null) {
+            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
+            finish();
         }
 
-    }
+        btnsignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = txtemail.getText().toString().trim();
+                String pass = txtpass.getText().toString().trim();
 
-    public void login() {
-        mAuth.signInWithEmailAndPassword(entradaEmail.getText().toString(), entradaSenha.getText().toString())
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                if(TextUtils.isEmpty(email)) {
+                    txtemail.setError("Email requerido");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if(TextUtils.isEmpty(pass)) {
+                    txtpass.setError("Senha requerida");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if(pass.length() < 8) {
+                    txtpass.setError("Senha deve ter mais de 6 caracteres");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                progressBar.setVisibility(View.VISIBLE);
+
+                fireAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Log.d(TAG, "signInWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
-                            Intent intent = new Intent(MainActivity.this, ActivityPrincipal.class);
-                            startActivity(intent);
-                            finish();
+                            Toast.makeText(MainActivity.this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                         } else {
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            updateUI(null);
+                            Toast.makeText(MainActivity.this, "Erro" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+
                         }
-                        if (!task.isSuccessful()) {
-                            Toast.makeText(MainActivity.this, "Falhou...", Toast.LENGTH_SHORT).show();
-                        }
+
                     }
                 });
-            }
 
-    private void inicializarComponentes() {
-        entradaEmail = findViewById(R.id.editEmail);
-        entradaSenha = findViewById(R.id.editSenha);
-        buttomLogin = findViewById(R.id.butaoLog);
-        buttomCad = findViewById(R.id.butaoCad);
+            }
+        });
     }
 
+    public void fCadastro(View view) {
+        startActivity(new Intent(getApplicationContext(), MainCadastro.class));
+        finish();
+    }
 }
-
 

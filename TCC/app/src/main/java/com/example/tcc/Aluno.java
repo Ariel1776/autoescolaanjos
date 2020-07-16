@@ -2,15 +2,20 @@ package com.example.tcc;
 
 import java.util.Date;
 
-public class Cad {
+public class Aluno {
     private String nome;
-    private Date nasc;
+    private String nasc;
     private String sexo;
-    private Integer cpf;
-    private Long tel;
-    private Integer cep;
+    private String cpf;
+    private String tel;
+    private String cep;
+    private String num;
     private String email;
     private String senha;
+
+    public Aluno() {
+
+    }
 
     public String getNome() {
         return nome;
@@ -20,11 +25,11 @@ public class Cad {
         this.nome = nome;
     }
 
-    public Date getNasc() {
+    public String getNasc() {
         return nasc;
     }
 
-    public void setNasc(Date nasc) {
+    public void setNasc(String nasc) {
         this.nasc = nasc;
     }
 
@@ -36,27 +41,27 @@ public class Cad {
         this.sexo = sexo;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
-    public Long getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(Long tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 
-    public Integer getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Integer cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
@@ -76,9 +81,14 @@ public class Cad {
         this.senha = senha;
     }
 
-    public Cad() {
-
+    public String getNum() {
+        return num;
     }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
 }
 
 

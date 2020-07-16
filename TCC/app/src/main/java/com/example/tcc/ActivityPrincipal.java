@@ -3,12 +3,18 @@ package com.example.tcc;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -16,9 +22,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ActivityPrincipal extends AppCompatActivity
@@ -28,6 +36,7 @@ public class ActivityPrincipal extends AppCompatActivity
     FragmentManager fragmentManager;
 
     private FirebaseAuth mAuth;
+    DatabaseReference reff;
     public String lbEmailDoUsuarioLogado;
 
     @Override
@@ -49,6 +58,11 @@ public class ActivityPrincipal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        String emaildouser = mAuth.getCurrentUser().getEmail();
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.emailaluno);
+        navUsername.setText(emaildouser);
 
     }
 
@@ -93,6 +107,38 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.replace(R.id.container_fragment, new FragmentSecond());
             fragmentTransaction.commit();
 
+
+
+
+            reff = FirebaseDatabase.getInstance().getReference().child("Escola");
+            reff.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    String TAG = "";
+
+                    String cnpj = snapshot.child("cnpj").getValue().toString();
+                    TextView tcnpj = findViewById(R.id.txtcnpj);
+                    tcnpj.setText(cnpj);
+
+                    String telefone = snapshot.child("telefone").getValue().toString();
+                    TextView ttelefone = findViewById(R.id.txttelefone);
+                    ttelefone.setText(telefone);
+
+                    String email = snapshot.child("email").getValue().toString();
+                    TextView temail = findViewById(R.id.txtemails);
+                    temail.setText(email);
+
+                    String endereco = snapshot.child("endereco").getValue().toString();
+                    TextView tendereco = findViewById(R.id.txtendereco);
+                    tendereco.setText(endereco);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
         } else if (id == R.id.nav_meusdados) {
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction();
@@ -106,36 +152,14 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_sair) {
-            logoff();
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            finish();
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-    }
-
-    public void logoff() {
-        mAuth.signOut();
-        updateUI(null);
-    }
-
-    public void updateUI(FirebaseUser user) {
-        if (user != null) {
-            lbEmailDoUsuarioLogado = user.getEmail();
-        } else {
-            lbEmailDoUsuarioLogado = "Nenhum Usuário Logado";
-        }
-
     }
 
 }

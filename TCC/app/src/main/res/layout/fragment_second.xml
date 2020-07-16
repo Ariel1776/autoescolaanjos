@@ -41,7 +41,7 @@
             />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtcnpjlbl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="25dp"
@@ -54,10 +54,11 @@
             />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/txtcnpj"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="   10.512.650/0001-70"
+            android:textAlignment="center"
+            android:text=""
             android:textSize="19dp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"/>
@@ -76,10 +77,10 @@
             />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/txttelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="   (11) 2059-2606"
+            android:text=""
             android:textSize="19dp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"/>
@@ -98,10 +99,10 @@
             />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/txtemails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="   autoescolaanjos1@gmail.com"
+            android:text="autoescolaanjos1@gmail.com"
             android:textSize="19dp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"/>
@@ -120,13 +121,13 @@
             />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/txtendereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="19dp"
             android:textStyle="bold"
             android:layout_marginBottom="15dp"
-            android:text="   Praça Catas Altas,133 03938140 São Paulo" />
+            android:text="" />
 
 
     </LinearLayout>
