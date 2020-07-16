@@ -5,7 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/../TCC.iml" filepath="$PROJECT_DIR$/../TCC.iml" group="TCC" />
       <module fileurl="file://$PROJECT_DIR$/TCC-app.iml" filepath="$PROJECT_DIR$/TCC-app.iml" group="TCC/app" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" group="TCC/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/-1027810343/ariel-autoescolaanjos-TCC.iml" filepath="$PROJECT_DIR$/.idea/modules/-1027810343/ariel-autoescolaanjos-TCC.iml" group="TCC" />
       <module fileurl="file://$PROJECT_DIR$/../autoescolaanjos-TCC.iml" filepath="$PROJECT_DIR$/../autoescolaanjos-TCC.iml" group="TCC" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/autoescolaanjos-TCC-app.iml" filepath="$PROJECT_DIR$/.idea/modules/autoescolaanjos-TCC-app.iml" group="TCC/app" />
     </modules>
   </component>
 </project>

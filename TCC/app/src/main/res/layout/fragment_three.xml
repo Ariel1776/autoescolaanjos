@@ -119,8 +119,6 @@
                 android:textColorHint="@color/branco"
                 android:textStyle="bold" />
         </LinearLayout>
-
-
     </LinearLayout>
 
 
