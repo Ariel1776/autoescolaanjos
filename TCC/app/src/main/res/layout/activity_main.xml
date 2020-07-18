@@ -70,9 +70,14 @@
             style="?android:attr/progressBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:progressTint="#FFFFFF"
-            android:visibility="visible"
-            tools:visibility="visible" />
+            android:backgroundTint="#FFEB3B"
+            android:backgroundTintMode="add"
+            android:foregroundTint="#FFEB3B"
+            android:indeterminateTint="#FFEB3B"
+            android:progressBackgroundTint="#FFEB3B"
+            android:progressTint="#FFEB3B"
+            android:visibility="invisible"
+             />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

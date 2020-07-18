@@ -23,10 +23,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import static android.text.TextUtils.isDigitsOnly;
+
 public class MainCadastro extends AppCompatActivity {
 
     EditText txtname, txtemail, txtpass, txtnasc, txtcpf, txttel, txtcep, txtnum;
-    Button btnsignup;
+    Button btnsignup, btnclear;
     TextView btnlogin;
     ProgressBar progressBar;
     RadioGroup txtsexo;
@@ -53,6 +55,7 @@ public class MainCadastro extends AppCompatActivity {
         txtpass = findViewById(R.id.txtsenha);
         btnsignup = findViewById(R.id.btncad);
         btnlogin = findViewById(R.id.btnjatenho);
+        btnclear = findViewById(R.id.btnclear);
         progressBar = findViewById(R.id.progressBar2);
 
         fireAuth = FirebaseAuth.getInstance();
@@ -78,7 +81,6 @@ public class MainCadastro extends AppCompatActivity {
                 String cep = txtcep.getText().toString().trim();
                 String num = txtnum.getText().toString().trim();
 
-
                 aluno.setCpf(cpf);
                 aluno.setNasc(nasc);
                 aluno.setCep(cep);
@@ -89,8 +91,56 @@ public class MainCadastro extends AppCompatActivity {
                 aluno.setNum(num);
                 aluno.setNome(nome);
                 reff.push().setValue(aluno);
+                //String key = reff.push().getKey();
+
+                //Toast.makeText(MainCadastro.this,key, Toast.LENGTH_LONG).show();
+
+
+
 
                progressBar.setVisibility(View.VISIBLE);
+
+                if (TextUtils.isEmpty(nome)) {
+                    txtname.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(nasc)) {
+                    txtnasc.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(cpf)) {
+                    txtcpf.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (cpf.length() != 11) {
+                    txtcpf.setError("CPF INVÁLIDO");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(tel)) {
+                    txttel.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(cep)) {
+                    txtcep.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
+
+                if (TextUtils.isEmpty(num)) {
+                    txtnum.setError("Campo requerido.");
+                    progressBar.setVisibility(View.INVISIBLE);
+                    return;
+                }
 
                 if (TextUtils.isEmpty(email)) {
                     txtemail.setError("Email requerido.");
@@ -105,7 +155,7 @@ public class MainCadastro extends AppCompatActivity {
                 }
 
                 if (pass.length() < 8) {
-                    txtpass.setError("A senha deve possuir mais de 6 caracteres.");
+                    txtpass.setError("A senha deve possuir mais de 8 caracteres.");
                     progressBar.setVisibility(View.INVISIBLE);
                     return;
                 }
@@ -132,6 +182,19 @@ public class MainCadastro extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), MainActivity.class));
         finish();
     }
+
+    public void Limpar(View view) {
+        txtnum.setText("");
+        txtcep.setText("");
+        txttel.setText("");
+        txtcpf.setText("");
+        txtnasc.setText("");
+        txtname.setText("");
+        txtemail.setText("");
+        txtpass.setText("");
+    }
+
+
 }
 
 

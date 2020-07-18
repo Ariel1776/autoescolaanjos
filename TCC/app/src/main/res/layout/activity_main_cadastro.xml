@@ -94,7 +94,7 @@
                 android:background="@drawable/inputstyle"
                 android:ems="10"
                 android:hint="CPF"
-                android:inputType="textPersonName"
+                android:inputType="numberSigned"
                 android:textAlignment="center"
                 android:textColor="@color/branco"
                 android:textColorHint="@color/branco" />
@@ -127,7 +127,7 @@
                     android:background="@drawable/inputstyle"
                     android:ems="10"
                     android:hint="CEP"
-                    android:inputType="textPostalAddress"
+                    android:inputType="phone"
                     android:selectAllOnFocus="false"
                     android:textAlignment="center"
                     android:textColor="@color/branco"
@@ -194,6 +194,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="12dp"
                 android:background="@drawable/btnred"
+                android:onClick="Limpar"
                 android:text="LIMPAR"
                 android:textColor="@color/branco" />
 
@@ -212,7 +213,14 @@
                 android:id="@+id/progressBar2"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:backgroundTint="#FFEB3B"
+                android:backgroundTintMode="add"
+                android:foregroundTint="#FFEB3B"
+                android:indeterminateTint="#FFEB3B"
+                android:progressBackgroundTint="#FFEB3B"
+                android:progressTint="#FFEB3B"
+                android:visibility="invisible" />
 
 
         </LinearLayout>

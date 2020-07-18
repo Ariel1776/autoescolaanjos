@@ -13,8 +13,6 @@ import com.google.firebase.database.DatabaseReference;
 
 public class FragmentSecond extends Fragment {
 
-    FirebaseAuth fireAuth;
-    DatabaseReference reff;
 
     @Nullable
     @Override

@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 if(pass.length() < 8) {
-                    txtpass.setError("Senha deve ter mais de 6 caracteres");
+                    txtpass.setError("Senha deve ter mais de 8 caracteres");
                     progressBar.setVisibility(View.INVISIBLE);
                     return;
                 }
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                         } else {
                             Toast.makeText(MainActivity.this, "Erro" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
+                            progressBar.setVisibility(View.INVISIBLE);
                         }
 
                     }
