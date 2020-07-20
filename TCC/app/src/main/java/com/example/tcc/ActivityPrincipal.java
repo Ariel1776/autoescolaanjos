@@ -66,11 +66,33 @@ public class ActivityPrincipal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        String nome;
+
+        Aluno aluno = new Aluno();
+
+        reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno");
+        reff2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                String nomea = snapshot.child("nome").getValue().toString();
+                Aluno aluno = new Aluno();
+                aluno.setNome(nomea);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         String emaildouser = mAuth.getCurrentUser().getEmail();
         View headerView = navigationView.getHeaderView(0);
-        TextView navUsername = (TextView) headerView.findViewById(R.id.emailaluno);
-        navUsername.setText(emaildouser);
+        TextView navemail = (TextView) headerView.findViewById(R.id.emailaluno);
+        navemail.setText(emaildouser);
+
+        TextView navnome = (TextView) headerView.findViewById(R.id.nomealuno);
+        navnome.setText(aluno.getNome());
 
     }
 
@@ -120,7 +142,6 @@ public class ActivityPrincipal extends AppCompatActivity
             reff.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    String TAG = "";
 
                     String cnpj = snapshot.child("cnpj").getValue().toString();
                     TextView tcnpj = findViewById(R.id.txtcnpj);
@@ -150,6 +171,43 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.replace(R.id.container_fragment, new FragmentThree());
             fragmentTransaction.commit();
+
+            reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno");
+            reff2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    String nomea = snapshot.child("nome").getValue().toString();
+                    EditText tnome = findViewById(R.id.txtnome);
+                    tnome.setText(nomea);
+
+                    String nasc = snapshot.child("nascimento").getValue().toString();
+                    EditText tnasc = findViewById(R.id.txtnascimento);
+                    tnasc.setText(nasc);
+
+                    String cpf = snapshot.child("cpf").getValue().toString();
+                    EditText tcpf = findViewById(R.id.txtcpf);
+                    tcpf.setText(cpf);
+
+                    String tel = snapshot.child("tel").getValue().toString();
+                    EditText ttel = findViewById(R.id.txttel);
+                    ttel.setText(tel);
+
+                    String cep = snapshot.child("cep").getValue().toString();
+                    EditText tcep = findViewById(R.id.txtcep);
+                    tcep.setText(cep);
+
+                    String num = snapshot.child("numero").getValue().toString();
+                    EditText tnum = findViewById(R.id.txtnum);
+                    tnum.setText(num);
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
 
 
 
