@@ -36,8 +36,6 @@ public class MainCadastro extends AppCompatActivity {
     FirebaseAuth fireAuth;
     DatabaseReference reff;
 
-    Aluno aluno;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +57,7 @@ public class MainCadastro extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
         fireAuth = FirebaseAuth.getInstance();
-        aluno = new Aluno();
-        reff = FirebaseDatabase.getInstance().getReference().child("Aluno");
+        reff = FirebaseDatabase.getInstance().getReference();
 
 
         if (fireAuth.getCurrentUser() != null) {
@@ -83,20 +80,20 @@ public class MainCadastro extends AppCompatActivity {
 
 
                 reff.setValue(email);
-                reff.child(email).setValue("nome");
-                reff.child(email).child("nome").setValue(nome);
-                reff.child(email).setValue("nascimento");
-                reff.child(email).child("nascimento").setValue(nasc);
-                reff.child(email).setValue("sexo");
-                reff.child(email).child("sexo").setValue(sexo);
-                reff.child(email).setValue("cpf");
-                reff.child(email).child("cpf").setValue(cpf);
-                reff.child(email).setValue("tel");
-                reff.child(email).child("tel").setValue(tel);
-                reff.child(email).setValue("cep");
-                reff.child(email).child("cep").setValue(cep);
-                reff.child(email).setValue("numero");
-                reff.child(email).child("numero").setValue(num);
+                reff.child("alunos").child(email).setValue("nome");
+                reff.child("alunos").child(email).child("nome").setValue(nome);
+                reff.child("alunos").child(email).setValue("nascimento");
+                reff.child("alunos").child(email).child("nascimento").setValue(nasc);
+                reff.child("alunos").child(email).setValue("sexo");
+                reff.child("alunos").child(email).child("sexo").setValue(sexo);
+                reff.child("alunos").child(email).setValue("cpf");
+                reff.child("alunos").child(email).child("cpf").setValue(cpf);
+                reff.child("alunos").child(email).setValue("tel");
+                reff.child("alunos").child(email).child("tel").setValue(tel);
+                reff.child("alunos").child(email).setValue("cep");
+                reff.child("alunos").child(email).child("cep").setValue(cep);
+                reff.child("alunos").child(email).setValue("numero");
+                reff.child("alunos").child(email).child("numero").setValue(num);
 
                progressBar.setVisibility(View.VISIBLE);
 

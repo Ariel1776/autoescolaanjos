@@ -66,33 +66,11 @@ public class ActivityPrincipal extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        String nome;
-
-        Aluno aluno = new Aluno();
-
-        reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno");
-        reff2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                String nomea = snapshot.child("nome").getValue().toString();
-                Aluno aluno = new Aluno();
-                aluno.setNome(nomea);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
         String emaildouser = mAuth.getCurrentUser().getEmail();
         View headerView = navigationView.getHeaderView(0);
         TextView navemail = (TextView) headerView.findViewById(R.id.emailaluno);
         navemail.setText(emaildouser);
-
-        TextView navnome = (TextView) headerView.findViewById(R.id.nomealuno);
-        navnome.setText(aluno.getNome());
 
     }
 
@@ -172,7 +150,9 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.replace(R.id.container_fragment, new FragmentThree());
             fragmentTransaction.commit();
 
-            reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno");
+            String emaildouser = mAuth.getCurrentUser().getEmail();
+
+            reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno").child(emaildouser);
             reff2.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
