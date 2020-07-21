@@ -148,9 +148,9 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.replace(R.id.container_fragment, new FragmentThree());
             fragmentTransaction.commit();
 
-           /* String emaildouser = mAuth.getCurrentUser().getEmail();
+           final String emaildouser = mAuth.getCurrentUser().getEmail();
 
-            reff2 = FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid());
+            reff2 = FirebaseDatabase.getInstance().getReference().child("Aluno");
             reff2.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -164,6 +164,9 @@ public class ActivityPrincipal extends AppCompatActivity
                             //printa de novo
                             System.out.println(ds);
                             System.out.println(aluno.getEmail());
+                            if (aluno.getEmail() == emaildouser) {
+                                Toast.makeText(ActivityPrincipal.this, "" + aluno, Toast.LENGTH_SHORT).show();
+                            }
 
                         }
                     }
@@ -174,7 +177,6 @@ public class ActivityPrincipal extends AppCompatActivity
 
                 }
             });
-                 */
 
 
 
