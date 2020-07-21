@@ -40,7 +40,6 @@ public class MainCadastro extends AppCompatActivity {
 
     Aluno aluno;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,8 +60,7 @@ public class MainCadastro extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
         fireAuth = FirebaseAuth.getInstance();
-        user = fireAuth.getCurrentUser();
-        reff = FirebaseDatabase.getInstance().getReference().child("Alunos").child(user.getUid());
+        reff = FirebaseDatabase.getInstance().getReference().child("Alunos");
 
         if (fireAuth.getCurrentUser() != null) {
            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
@@ -90,7 +88,6 @@ public class MainCadastro extends AppCompatActivity {
                 aluno.setCep(cep);
                 aluno.setNum(num);
                 reff.push().setValue(aluno);
-
 
                 progressBar.setVisibility(View.VISIBLE);
 
@@ -160,7 +157,6 @@ public class MainCadastro extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
-                            finish();
 
                         } else {
                             Toast.makeText(MainCadastro.this, "Erro" + task.getException(), Toast.LENGTH_SHORT).show();
