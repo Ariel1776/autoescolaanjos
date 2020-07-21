@@ -156,7 +156,7 @@ public class MainCadastro extends AppCompatActivity {
                             aluno.setTel(tel);
                             aluno.setCep(cep);
                             aluno.setNum(num);
-                            reff.child("Alunos").push().setValue(aluno);
+                            reff.push().setValue(aluno);
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                             finish();
