@@ -20,7 +20,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,11 +33,11 @@ public class MainCadastro extends AppCompatActivity {
     ProgressBar progressBar;
     RadioGroup txtsexo;
 
-    FirebaseUser user;
     FirebaseAuth fireAuth;
     DatabaseReference reff;
 
     Aluno aluno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +59,13 @@ public class MainCadastro extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
         fireAuth = FirebaseAuth.getInstance();
-        reff = FirebaseDatabase.getInstance().getReference().child("Alunos");
+        aluno = new Aluno();
+        reff = FirebaseDatabase.getInstance().getReference().child("Aluno");
+
 
         if (fireAuth.getCurrentUser() != null) {
-           startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
-           finish();
+            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
+            finish();
         }
 
         btnsignup.setOnClickListener(new View.OnClickListener() {
@@ -80,15 +81,15 @@ public class MainCadastro extends AppCompatActivity {
                 String cep = txtcep.getText().toString().trim();
                 String num = txtnum.getText().toString().trim();
 
-                aluno.setNome(nome);
-                aluno.setNasc(nasc);
                 aluno.setCpf(cpf);
-                aluno.setSexo(sexo);
-                aluno.setTel(tel);
+                aluno.setNasc(nasc);
                 aluno.setCep(cep);
-                aluno.setNum(num);
                 aluno.setEmail(email);
                 aluno.setSenha(pass);
+                aluno.setSexo(sexo);
+                aluno.setTel(tel);
+                aluno.setNum(num);
+                aluno.setNome(nome);
                 reff.push().setValue(aluno);
 
                 progressBar.setVisibility(View.VISIBLE);
@@ -159,6 +160,7 @@ public class MainCadastro extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
+                            finish();
 
                         } else {
                             Toast.makeText(MainCadastro.this, "Erro" + task.getException(), Toast.LENGTH_SHORT).show();
@@ -186,10 +188,8 @@ public class MainCadastro extends AppCompatActivity {
         txtpass.setText("");
     }
 
-
-
-
 }
+
 
 
 
