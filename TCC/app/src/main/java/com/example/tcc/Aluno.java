@@ -11,7 +11,6 @@ public class Aluno {
     private String cep;
     private String num;
     private String email;
-    private String senha;
 
     public Aluno() {
 
@@ -71,14 +70,6 @@ public class Aluno {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getNum() {

@@ -151,7 +151,6 @@ public class MainCadastro extends AppCompatActivity {
                             aluno.setNasc(nasc);
                             aluno.setCep(cep);
                             aluno.setEmail(email);
-                            aluno.setSenha(pass);
                             aluno.setSexo(sexo);
                             aluno.setTel(tel);
                             aluno.setNum(num);
