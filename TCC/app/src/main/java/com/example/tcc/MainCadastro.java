@@ -71,26 +71,15 @@ public class MainCadastro extends AppCompatActivity {
         btnsignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = txtemail.getText().toString().trim();
-                String pass = txtpass.getText().toString().trim();
-                String nome = txtname.getText().toString().trim();
-                String nasc = txtnasc.getText().toString().trim();
-                String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
-                String cpf = txtcpf.getText().toString().trim();
-                String tel = txttel.getText().toString().trim();
-                String cep = txtcep.getText().toString().trim();
-                String num = txtnum.getText().toString().trim();
-
-                aluno.setCpf(cpf);
-                aluno.setNasc(nasc);
-                aluno.setCep(cep);
-                aluno.setEmail(email);
-                aluno.setSenha(pass);
-                aluno.setSexo(sexo);
-                aluno.setTel(tel);
-                aluno.setNum(num);
-                aluno.setNome(nome);
-                reff.push().setValue(aluno);
+                final String email = txtemail.getText().toString().trim();
+                final String pass = txtpass.getText().toString().trim();
+                final String nome = txtname.getText().toString().trim();
+                final String nasc = txtnasc.getText().toString().trim();
+                final String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
+                final String cpf = txtcpf.getText().toString().trim();
+                final String tel = txttel.getText().toString().trim();
+                final String cep = txtcep.getText().toString().trim();
+                final String num = txtnum.getText().toString().trim();
 
                 progressBar.setVisibility(View.VISIBLE);
 
@@ -158,6 +147,16 @@ public class MainCadastro extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            aluno.setCpf(cpf);
+                            aluno.setNasc(nasc);
+                            aluno.setCep(cep);
+                            aluno.setEmail(email);
+                            aluno.setSenha(pass);
+                            aluno.setSexo(sexo);
+                            aluno.setTel(tel);
+                            aluno.setNum(num);
+                            aluno.setNome(nome);
+                            reff.push().setValue(aluno);
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                             finish();
