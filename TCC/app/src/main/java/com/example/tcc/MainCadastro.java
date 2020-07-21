@@ -87,6 +87,8 @@ public class MainCadastro extends AppCompatActivity {
                 aluno.setTel(tel);
                 aluno.setCep(cep);
                 aluno.setNum(num);
+                aluno.setEmail(email);
+                aluno.setSenha(pass);
                 reff.push().setValue(aluno);
 
                 progressBar.setVisibility(View.VISIBLE);
