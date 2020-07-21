@@ -79,7 +79,7 @@ public class MainCadastro extends AppCompatActivity {
                 String num = txtnum.getText().toString().trim();
 
 
-                reff.setValue(email);
+                reff.child("alunos").setValue(email);
                 reff.child("alunos").child(email).setValue("nome");
                 reff.child("alunos").child(email).child("nome").setValue(nome);
                 reff.child("alunos").child(email).setValue("nascimento");
