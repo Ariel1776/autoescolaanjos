@@ -152,35 +152,23 @@ public class ActivityPrincipal extends AppCompatActivity
 
             String emaildouser = mAuth.getCurrentUser().getEmail();
 
-            reff2 = FirebaseDatabase.getInstance().getReference().child("Alunos");
+            reff2 = FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid());
             reff2.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                    String nomea = snapshot.child("nome").getValue().toString();
-                    EditText tnome = findViewById(R.id.txtnome);
-                    tnome.setText(nomea);
+                    for (DataSnapshot snapshot2 : snapshot.getChildren()) {
+                        //aqui vc printa pra saber o que ele ta pegando:
+                        System.out.println(snapshot2);
+                        //Nao vai pegar o q vc quer, tem que fazer mais um for:
+                        for(DataSnapshot ds: snapshot.getChildren()){
+                            Aluno aluno = ds.getValue(Aluno.class);
+                            //printa de novo
+                            System.out.println(ds);
+                            System.out.println(aluno.getEmail());
 
-                    String nasc = snapshot.child("nascimento").getValue().toString();
-                    EditText tnasc = findViewById(R.id.txtnascimento);
-                    tnasc.setText(nasc);
-
-                    String cpf = snapshot.child("cpf").getValue().toString();
-                    EditText tcpf = findViewById(R.id.txtcpf);
-                    tcpf.setText(cpf);
-
-                    String tel = snapshot.child("tel").getValue().toString();
-                    EditText ttel = findViewById(R.id.txttel);
-                    ttel.setText(tel);
-
-                    String cep = snapshot.child("cep").getValue().toString();
-                    EditText tcep = findViewById(R.id.txtcep);
-                    tcep.setText(cep);
-
-                    String num = snapshot.child("numero").getValue().toString();
-                    EditText tnum = findViewById(R.id.txtnum);
-                    tnum.setText(num);
-
+                        }
+                    }
                 }
 
                 @Override

@@ -20,6 +20,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -33,6 +34,7 @@ public class MainCadastro extends AppCompatActivity {
     ProgressBar progressBar;
     RadioGroup txtsexo;
 
+    FirebaseUser user;
     FirebaseAuth fireAuth;
     DatabaseReference reff;
 
@@ -59,8 +61,8 @@ public class MainCadastro extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar2);
 
         fireAuth = FirebaseAuth.getInstance();
-        reff = FirebaseDatabase.getInstance().getReference();
-
+        user = fireAuth.getCurrentUser();
+        reff = FirebaseDatabase.getInstance().getReference().child(user.getUid());
 
         if (fireAuth.getCurrentUser() != null) {
            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
@@ -80,7 +82,8 @@ public class MainCadastro extends AppCompatActivity {
                 final String cep = txtcep.getText().toString().trim();
                 final String num = txtnum.getText().toString().trim();
 
-               progressBar.setVisibility(View.VISIBLE);
+
+                progressBar.setVisibility(View.VISIBLE);
 
                 if (TextUtils.isEmpty(nome)) {
                     txtname.setError("Campo requerido.");
