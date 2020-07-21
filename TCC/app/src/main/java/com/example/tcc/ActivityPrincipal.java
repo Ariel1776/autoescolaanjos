@@ -53,8 +53,6 @@ public class ActivityPrincipal extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        MainActivity ma = new MainActivity();
-
         mAuth = FirebaseAuth.getInstance();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -150,7 +148,7 @@ public class ActivityPrincipal extends AppCompatActivity
             fragmentTransaction.replace(R.id.container_fragment, new FragmentThree());
             fragmentTransaction.commit();
 
-            String emaildouser = mAuth.getCurrentUser().getEmail();
+           /* String emaildouser = mAuth.getCurrentUser().getEmail();
 
             reff2 = FirebaseDatabase.getInstance().getReference().child(mAuth.getCurrentUser().getUid());
             reff2.addValueEventListener(new ValueEventListener() {
@@ -176,7 +174,7 @@ public class ActivityPrincipal extends AppCompatActivity
 
                 }
             });
-
+                 */
 
 
 
