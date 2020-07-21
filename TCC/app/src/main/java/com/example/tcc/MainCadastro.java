@@ -62,7 +62,7 @@ public class MainCadastro extends AppCompatActivity {
 
         fireAuth = FirebaseAuth.getInstance();
         user = fireAuth.getCurrentUser();
-        reff = FirebaseDatabase.getInstance().getReference().child(user.getUid());
+        reff = FirebaseDatabase.getInstance().getReference().child("Alunos").child(user.getUid());
 
         if (fireAuth.getCurrentUser() != null) {
            startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
@@ -74,13 +74,22 @@ public class MainCadastro extends AppCompatActivity {
             public void onClick(View view) {
                 String email = txtemail.getText().toString().trim();
                 String pass = txtpass.getText().toString().trim();
-                final String nome = txtname.getText().toString().trim();
-                final String nasc = txtnasc.getText().toString().trim();
-                final String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
-                final String cpf = txtcpf.getText().toString().trim();
-                final String tel = txttel.getText().toString().trim();
-                final String cep = txtcep.getText().toString().trim();
-                final String num = txtnum.getText().toString().trim();
+                String nome = txtname.getText().toString().trim();
+                String nasc = txtnasc.getText().toString().trim();
+                String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
+                String cpf = txtcpf.getText().toString().trim();
+                String tel = txttel.getText().toString().trim();
+                String cep = txtcep.getText().toString().trim();
+                String num = txtnum.getText().toString().trim();
+
+                aluno.setNome(nome);
+                aluno.setNasc(nasc);
+                aluno.setCpf(cpf);
+                aluno.setSexo(sexo);
+                aluno.setTel(tel);
+                aluno.setCep(cep);
+                aluno.setNum(num);
+                reff.push().setValue(aluno);
 
 
                 progressBar.setVisibility(View.VISIBLE);
@@ -149,14 +158,6 @@ public class MainCadastro extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            aluno.setNome(nome);
-                            aluno.setNasc(nasc);
-                            aluno.setCpf(cpf);
-                            aluno.setSexo(sexo);
-                            aluno.setTel(tel);
-                            aluno.setCep(cep);
-                            aluno.setNum(num);
-                            reff.push().setValue(aluno);
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                             finish();
