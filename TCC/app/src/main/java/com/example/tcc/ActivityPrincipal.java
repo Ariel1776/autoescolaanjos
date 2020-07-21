@@ -152,7 +152,7 @@ public class ActivityPrincipal extends AppCompatActivity
 
             String emaildouser = mAuth.getCurrentUser().getEmail();
 
-            reff2 = FirebaseDatabase.getInstance().getReference().child(emaildouser);
+            reff2 = FirebaseDatabase.getInstance().getReference().child("Alunos");
             reff2.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

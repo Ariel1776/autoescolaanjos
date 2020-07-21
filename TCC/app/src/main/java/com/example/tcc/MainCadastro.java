@@ -36,6 +36,8 @@ public class MainCadastro extends AppCompatActivity {
     FirebaseAuth fireAuth;
     DatabaseReference reff;
 
+    Aluno aluno;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,30 +72,13 @@ public class MainCadastro extends AppCompatActivity {
             public void onClick(View view) {
                 String email = txtemail.getText().toString().trim();
                 String pass = txtpass.getText().toString().trim();
-                String nome = txtname.getText().toString().trim();
-                String nasc = txtnasc.getText().toString().trim();
-                String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
-                String cpf = txtcpf.getText().toString().trim();
-                String tel = txttel.getText().toString().trim();
-                String cep = txtcep.getText().toString().trim();
-                String num = txtnum.getText().toString().trim();
-
-
-                reff.setValue(email);
-                reff.child(email).setValue("nome");
-                reff.child(email).child("nome").setValue(nome);
-                reff.child(email).setValue("nascimento");
-                reff.child(email).child("nascimento").setValue(nasc);
-                reff.child(email).setValue("sexo");
-                reff.child(email).child("sexo").setValue(sexo);
-                reff.child(email).setValue("cpf");
-                reff.child(email).child("cpf").setValue(cpf);
-                reff.child(email).setValue("tel");
-                reff.child(email).child("tel").setValue(tel);
-                reff.child(email).setValue("cep");
-                reff.child(email).child("cep").setValue(cep);
-                reff.child(email).setValue("numero");
-                reff.child(email).child("numero").setValue(num);
+                final String nome = txtname.getText().toString().trim();
+                final String nasc = txtnasc.getText().toString().trim();
+                final String sexo = ((RadioButton)findViewById(txtsexo.getCheckedRadioButtonId())).getText().toString();
+                final String cpf = txtcpf.getText().toString().trim();
+                final String tel = txttel.getText().toString().trim();
+                final String cep = txtcep.getText().toString().trim();
+                final String num = txtnum.getText().toString().trim();
 
                progressBar.setVisibility(View.VISIBLE);
 
@@ -161,6 +146,14 @@ public class MainCadastro extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            aluno.setNome(nome);
+                            aluno.setNasc(nasc);
+                            aluno.setCpf(cpf);
+                            aluno.setSexo(sexo);
+                            aluno.setTel(tel);
+                            aluno.setCep(cep);
+                            aluno.setNum(num);
+                            reff.child("Alunos").push().setValue(aluno);
                             Toast.makeText(MainCadastro.this, "Usuário registrado", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), ActivityPrincipal.class));
                             finish();
